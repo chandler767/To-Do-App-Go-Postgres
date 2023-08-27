@@ -44,7 +44,7 @@ func main() {
 	var err error
 	db, err = gorm.Open("postgres", "host="+os.Getenv("PGHOST")+" port="+os.Getenv("PGPORT")+" user="+os.Getenv("PGUSER")+" dbname="+os.Getenv("PGDATABASE")+" sslmode=disable password="+os.Getenv("PGPASSWORD"))
 	if err != nil {
-		panic("failed to connect database" + "    host=" + os.Getenv("PGHOST") + " port=" + os.Getenv("PGPORT") + " user=" + os.Getenv("PGUSER") + " dbname=" + os.Getenv("PGDATABASE") + " sslmode=disable password=" + os.Getenv("PGPASSWORD"))
+		panic("failed to connect database:" + "   serverport=" + os.Getenv("PORT") + "   host=" + os.Getenv("PGHOST") + " port=" + os.Getenv("PGPORT") + " user=" + os.Getenv("PGUSER") + " dbname=" + os.Getenv("PGDATABASE") + " sslmode=disable password=" + os.Getenv("PGPASSWORD"))
 	}
 	defer db.Close()
 	db.AutoMigrate(&newTask{}) // Creates our task table
