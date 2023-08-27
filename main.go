@@ -42,7 +42,7 @@ func newEntry(w http.ResponseWriter, req *http.Request) {
 
 func main() {
 	var err error
-	db, err = gorm.Open("postgres", "host="+os.Getenv("DB_HOST")+" port="+os.Getenv("DB_PORT")+" user="+os.Getenv("DB_USER")+" dbname="+os.Getenv("DB_NAME")+" sslmode=disable password="+os.Getenv("DB_PASSWORD"))
+	db, err = gorm.Open("postgres", "host="+os.Getenv("PGHOST")+" port="+os.Getenv("PGPORT")+" user="+os.Getenv("PGUSER")+" dbname="+os.Getenv("PGDATABASE")+" sslmode=disable password="+os.Getenv("PGPASSWORD"))
 	if err != nil {
 		panic("failed to connect database")
 	}
